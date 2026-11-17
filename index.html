@@ -4,130 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Livre das Dívidas · Plano de 7 dias</title>
-<meta name="description" content="Responda 3 perguntas e veja o furo que faz a sua dívida voltar todo mês. Plano de 7 dias por R$ 19,90.">
+<meta name="description" content="Responda 7 perguntas e receba o seu plano de 7 dias para sair das dívidas, por R$ 19,90.">
+<meta name="theme-color" content="#0B0B0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green:#00B140; --green-2:#008A32; --green-50:#E6F9EE;
-  --yellow:#FFD400; --yellow-50:#FFF7CC; --orange:#FF7A00; --red:#E63946;
-  --blue:#0A6CFF; --purple:#7B2FF7; --pink:#F0386B;
-  --ink:#14213D; --muted:#4B5563; --line:#E5E7EB; --bg:#FFFBF0;
+  --bg:#0B0B0D; --card:#16161A; --card-2:#1E1E24; --line:#2C2C33;
+  --text:#F4F4F5; --muted:#A1A1AA; --y:#FFD400; --y-2:#C9A600; --r:#FF3B30; --g:#22C55E; --o:#FF8A00;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:19px;line-height:1.45}
+body{margin:0;color:var(--text);font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:19px;line-height:1.45;
+  background:var(--bg) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 .wrap{max-width:540px;margin:0 auto;padding:0 16px}
-h1,h2,h3,.mont{font-family:Montserrat,"Atkinson Hyperlegible",Arial,sans-serif}
+.anton{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.mont{font-family:Montserrat,Arial,sans-serif}
+.y{color:var(--y)} .r{color:var(--r)}
 
 /* topo */
-header.top{background:linear-gradient(90deg,#00A63E,#00C27A);color:#fff}
+header.top{border-bottom:1px solid var(--line);background:rgba(11,11,13,.92)}
 header.top .wrap{display:flex;align-items:center;gap:10px;padding:10px 16px}
-header.top b{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:18px;letter-spacing:.2px}
-header.top span{display:block;font-size:12px;font-weight:700;opacity:.95;text-transform:uppercase;letter-spacing:.6px}
+header.top b{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:17px}
+header.top span{display:block;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
 
-main{padding:16px 0 110px}
-.screen{display:none;animation:fade .25s ease}
+main{padding:18px 0 110px}
+.screen{display:none;animation:fade .3s ease}
 .screen.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* headline */
-.headline{font-weight:900;font-size:27px;line-height:1.14;margin:4px 0 6px;letter-spacing:-.3px}
-.headline .mk{background:var(--yellow);padding:0 6px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.headline .gr{color:var(--green-2)}
-.sub{font-size:18px;color:var(--muted);margin:0 0 14px;font-weight:700}
+/* quiz: topo */
+.kicker{display:inline-block;background:var(--r);color:#fff;font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;padding:5px 10px;border-radius:4px}
+.headline{font-size:44px;line-height:1.02;margin:12px 0 6px;min-height:92px}
+.swap{animation:swap .45s ease}
+@keyframes swap{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.sub{font-size:18px;color:var(--muted);margin:0 0 16px;font-weight:700}
 
 /* cartão da pergunta */
-.qcard{background:#fff;border-radius:20px;padding:16px;box-shadow:0 8px 24px rgba(20,33,61,.08);border:1px solid #F1E7C8}
-.prog{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.prog .dots{display:flex;gap:6px;flex:1}
-.prog .dots i{flex:1;height:10px;border-radius:99px;background:#EEE6CF}
-.prog .dots i.f{background:linear-gradient(90deg,var(--yellow),var(--orange))}
-.prog span{font-size:14px;font-weight:700;color:var(--muted);white-space:nowrap}
-.q{font-weight:800;font-size:23px;line-height:1.2;margin:4px 0 14px}
-.qhint{font-size:16px;font-weight:700;color:var(--orange);margin:-8px 0 12px}
-.qhint.alert{color:var(--red)}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.prog{margin-bottom:12px}
+.prog .row{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;color:var(--muted);margin-bottom:7px}
+.prog .row b{color:var(--y);font-family:Montserrat,Arial,sans-serif;font-weight:900}
+.prog .bar{height:12px;border-radius:99px;background:#26262C;overflow:hidden}
+.prog .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--y),var(--o),var(--r));transition:width .6s ease}
+.q{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:24px;line-height:1.2;margin:6px 0 14px}
+.qhint{font-size:16px;font-weight:700;color:var(--y);margin:-8px 0 12px}
+.qhint.alert{color:var(--r)}
 .opts{display:grid;gap:10px}
-.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:62px;padding:10px 14px;background:#fff;border:2.5px solid var(--line);border-radius:16px;font:inherit;font-size:19px;font-weight:700;color:var(--ink);text-align:left;cursor:pointer;transition:transform .08s,background .15s,border-color .15s}
-.opt .em{flex:0 0 44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:24px;background:var(--yellow-50)}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:62px;padding:10px 14px;background:var(--card-2);border:2px solid var(--line);border-radius:16px;font:inherit;font-size:19px;font-weight:700;color:var(--text);text-align:left;cursor:pointer;transition:transform .08s,background .15s,border-color .15s}
+.opt .em{flex:0 0 44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:24px;background:#2A2A31}
 .opt:active{transform:scale(.98)}
-@media (hover:hover){.opt:hover{border-color:var(--green)}}
-.opt.sel{background:var(--green);border-color:var(--green);color:#fff}
-.opt.sel .em{background:rgba(255,255,255,.25)}
+@media (hover:hover){.opt:hover{border-color:var(--y)}}
+.opt.sel{background:var(--y);border-color:var(--y);color:#111}
+.opt.sel .em{background:rgba(0,0,0,.12)}
 .grid2{grid-template-columns:1fr 1fr}
-.grid2 .opt{flex-direction:column;justify-content:center;text-align:center;min-height:104px;gap:6px;font-size:17px;padding:10px 8px;position:relative}
-.grid2 .opt .em{font-size:30px;width:50px;height:50px;flex:0 0 auto}
-.grid2 .opt.sel::after{content:"✓";position:absolute;top:8px;right:10px;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;font-size:15px;font-weight:900}
+.grid2 .opt{flex-direction:column;justify-content:center;text-align:center;min-height:100px;gap:6px;font-size:17px;line-height:1.2;padding:10px 8px;position:relative}
+.grid2 .opt .em{font-size:28px;width:48px;height:48px;flex:0 0 auto}
+.grid2 .opt.sel::after{content:"✓";position:absolute;top:8px;right:10px;width:24px;height:24px;border-radius:50%;background:#111;color:var(--y);display:grid;place-items:center;font-size:15px;font-weight:900}
+.fb{margin-top:12px;border-left:4px solid var(--y);background:#221F10;color:#FFF3B0;border-radius:10px;padding:10px 12px;font-size:17px;font-weight:700;display:none}
+.fb.on{display:block;animation:fade .3s ease}
 .back{display:inline-block;background:none;border:0;color:var(--muted);font:inherit;font-size:16px;text-decoration:underline;margin-top:12px;cursor:pointer;padding:4px 0}
 
 /* botões */
-.btn{display:block;width:100%;border:0;border-radius:16px;font-family:Montserrat,Arial,sans-serif;font-weight:900;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer;color:#fff;background:linear-gradient(180deg,#22D46B,#00A63E);box-shadow:0 6px 0 #007A2E,0 10px 22px rgba(0,166,62,.3);font-size:20px;padding:18px 14px;letter-spacing:.2px;margin-top:14px}
-.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #007A2E}
-.btn[disabled]{background:#C9CED6;box-shadow:0 6px 0 #AEB4BE;cursor:not-allowed}
-.btn:focus-visible,.opt:focus-visible{outline:4px solid var(--orange);outline-offset:3px}
-.cta-giant{font-size:23px;line-height:1.2;padding:24px 16px;border-radius:20px;animation:pulse 1.8s ease-in-out infinite}
-.cta-giant small{display:block;font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-size:15px;font-weight:700;text-transform:none;opacity:.95;margin-top:6px;letter-spacing:0}
+.btn{display:block;width:100%;border:0;border-radius:16px;font-family:Montserrat,Arial,sans-serif;font-weight:900;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer;color:#111;background:var(--y);box-shadow:0 6px 0 var(--y-2),0 12px 26px rgba(255,212,0,.18);font-size:20px;padding:18px 14px;letter-spacing:.2px;margin-top:14px}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 var(--y-2)}
+.btn[disabled]{background:#3A3A42;color:#8A8A93;box-shadow:0 6px 0 #26262C;cursor:not-allowed}
+.btn:focus-visible,.opt:focus-visible{outline:4px solid var(--o);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--text);border:2px solid var(--line);box-shadow:none}
+.cta-giant{font-size:22px;line-height:1.2;padding:22px 16px;border-radius:20px;animation:pulse 1.8s ease-in-out infinite}
+.cta-giant small,.btn small{display:block;font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-size:15px;font-weight:700;text-transform:none;margin-top:6px;letter-spacing:0;opacity:.85}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-@media (prefers-reduced-motion:reduce){.cta-giant{animation:none}}
+@media (prefers-reduced-motion:reduce){.cta-giant,.headline.swap,.screen{animation:none}}
 
 /* carregando */
-.loading{text-align:center;padding:40px 0}
-.spin{width:64px;height:64px;border-radius:50%;border:7px solid #FFE680;border-top-color:var(--orange);margin:0 auto 18px;animation:sp .9s linear infinite}
-@keyframes sp{to{transform:rotate(360deg)}}
+.loading{padding:30px 4px}
+.loading h2{font-size:34px;line-height:1.05;margin:0 0 18px}
+.checks div{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:700;color:#55555E;padding:10px 0;border-bottom:1px solid var(--line);transition:color .3s}
+.checks div i{flex:0 0 28px;height:28px;border-radius:50%;border:3px solid #3A3A42;display:grid;place-items:center;font-style:normal;font-size:15px;color:transparent;transition:.3s}
+.checks div.ok{color:var(--text)}
+.checks div.ok i{border-color:var(--g);background:var(--g);color:#111}
 
 /* resultado */
-.res-top{border-radius:22px;padding:20px 18px;color:#fff;text-align:center;box-shadow:0 10px 26px rgba(20,33,61,.15)}
-.res-top .lab{display:inline-block;background:rgba(255,255,255,.22);border-radius:99px;padding:4px 12px;font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
-.res-top .emo{font-size:58px;line-height:1;margin:10px 0 4px}
-.res-top .pre{font-size:18px;font-weight:700;opacity:.95}
-.res-top .name{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:36px;line-height:1.05;text-transform:uppercase;margin:2px 0 10px}
+.rot{display:block;text-align:center;font-size:30px;line-height:1.05;color:var(--y);min-height:32px;margin:0 0 14px}
+.res-top{border-radius:22px;padding:20px 18px;text-align:center;background:var(--card);border:2px solid transparent;position:relative}
+.res-top::before{content:"";position:absolute;inset:-2px;border-radius:22px;padding:2px;background:var(--grad,linear-gradient(160deg,var(--r),var(--y)));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.res-top .lab{display:inline-block;background:#26262C;border-radius:99px;padding:4px 12px;font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.res-top .emo{font-size:56px;line-height:1;margin:10px 0 4px}
+.res-top .pre{font-size:18px;font-weight:700;color:var(--muted)}
+.res-top .name{font-size:46px;line-height:1;margin:4px 0 10px}
 .res-top p{margin:0;font-size:19px}
-.lines{background:#fff;border-radius:18px;padding:6px 16px;margin:14px 0;border:1px solid var(--line)}
-.lines div{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #F1F1F1}
+.cost{background:#1F0F0F;border:2px solid #5C1A17;border-radius:18px;padding:16px;margin:14px 0}
+.cost .t{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#FF8A80}
+.cost .v{font-size:40px;line-height:1.05;margin:6px 0 4px}
+.cost p{margin:0;font-size:17px;color:#E4E4E7}
+.cost small{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+.said{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin:14px 0}
+.said b.t{display:block;font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:#26262C;border:1px solid #3A3A42;border-radius:99px;padding:5px 12px;font-weight:700;font-size:16px}
+.lines{background:var(--card);border-radius:18px;padding:6px 16px;margin:14px 0;border:1px solid var(--line)}
+.lines div{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
 .lines div:last-child{border-bottom:0}
 .lines .i{flex:0 0 32px;font-size:24px;line-height:1.2}
-.lines b{display:block;font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:.3px}
-.facts{display:grid;gap:10px;margin:0 0 14px}
-.fact{background:#fff;border-radius:18px;padding:14px 16px;border:1px solid var(--line)}
-.fact b{font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
-.fact .big{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:22px;margin-top:2px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.chips span{background:var(--yellow-50);border:1.5px solid #F5D96B;border-radius:99px;padding:5px 12px;font-weight:700;font-size:16px}
-/* termômetro */
-.termo .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:26px}
-.termo .seg{position:relative;height:16px;border-radius:5px;opacity:.3}
-.termo .seg:nth-child(1){background:#22C55E}.termo .seg:nth-child(2){background:#FACC15}
-.termo .seg:nth-child(3){background:#FB923C}.termo .seg:nth-child(4){background:#EF4444}
-.termo .seg.on{opacity:1;height:22px;margin-top:-3px;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink)}
-.termo .seg.on::before{content:"você";position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:#fff;background:var(--ink);padding:2px 8px;border-radius:5px;white-space:nowrap}
-.termo .lbl{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-size:12px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.2}
-.termo.unknown .seg{opacity:.18}
-/* oferta */
-.offer{background:#fff;border:3px solid var(--green);border-radius:22px;padding:18px 16px 20px;text-align:center;margin:16px 0}
-.offer .tt{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:20px;line-height:1.2}
-.offer .price{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:60px;line-height:1;color:var(--green-2);margin:10px 0 2px}
-.offer .price sup{font-size:24px;vertical-align:top;position:relative;top:10px;margin-right:2px}
-.offer .pp{font-size:17px;color:var(--muted);font-weight:700}
-.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:16px}
-.trust div{background:var(--green-50);border-radius:12px;padding:8px 4px;font-size:13px;font-weight:700;line-height:1.25;color:#065F2C}
-.trust div::before{content:"✓";display:block;font-size:18px;font-weight:900;color:var(--green)}
-.hero{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/2;background:#FFE7C2;margin:4px 0 10px}
+.lines b{display:block;font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.3px;color:var(--muted)}
+.dream{text-align:center;font-size:20px;font-weight:700;margin:18px 0 4px}
+.dream b{color:var(--y)}
+/* ofertas */
+h2.sec{font-size:32px;line-height:1.05;margin:26px 0 10px;text-align:center}
+.plan{position:relative;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:22px 16px 18px;text-align:center;margin:14px 0}
+.plan.day{border-color:var(--y);box-shadow:0 0 0 4px rgba(255,212,0,.12)}
+.plan .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;padding:5px 12px;border-radius:99px;background:#3A3A42;color:#fff}
+.plan.day .badge{background:var(--y);color:#111}
+.plan .pt{font-size:28px;line-height:1.05}
+.plan .pd{font-size:17px;color:#D4D4D8;margin:8px 0 0}
+.plan .price{font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:54px;line-height:1;margin:12px 0 2px}
+.plan.day .price{color:var(--y)}
+.plan .price sup{font-size:22px;vertical-align:top;position:relative;top:9px;margin-right:2px}
+.plan .pp{font-size:16px;color:var(--muted);font-weight:700}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.trust div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px;font-size:13px;font-weight:700;line-height:1.25;text-align:center;color:#D4D4D8}
+.trust div::before{content:"✓";display:block;font-size:18px;font-weight:900;color:var(--g)}
+.taxa{text-align:center;font-size:14px;color:var(--muted);margin:8px 0 0}
+.hero{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/2;background:#2A2A31;margin:4px 0 10px}
 .hero svg,.hero img{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero img{object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,0) 55%,rgba(11,11,13,.75))}
 .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:6px}
-.pills span{border-radius:99px;padding:7px 14px;font-weight:700;font-size:16px;color:#fff}
-.days{background:#fff;border-radius:18px;border:1px solid var(--line);padding:4px 14px;margin:10px 0}
-.days div{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #F1F1F1;font-size:17px}
+.pills span{border-radius:99px;padding:7px 14px;font-weight:700;font-size:16px;background:var(--card-2);border:1px solid var(--line)}
+.days{background:var(--card);border-radius:18px;border:1px solid var(--line);padding:4px 14px;margin:10px 0}
+.days div{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:17px}
 .days div:last-child{border-bottom:0}
-.days .d{flex:0 0 58px;font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:8px;text-align:center;padding:4px 0}
-.days .d.open{background:var(--green)}
-h2.sec{font-weight:900;font-size:22px;margin:22px 0 6px;text-align:center}
+.days .d{flex:0 0 58px;font-family:Montserrat,Arial,sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;color:#111;background:#3A3A42;border-radius:8px;text-align:center;padding:4px 0;color:#D4D4D8}
+.days .d.open{background:var(--y);color:#111}
 .garan{text-align:center;font-size:16px;color:var(--muted);margin:12px 0 0}
-footer{background:var(--ink);color:#C7CDD8;font-size:13px;padding:20px 0 120px}
+.band{margin:22px -16px 0;padding:18px 16px;background:var(--y);color:#111;text-align:center}
+.band .rot{color:#111;margin:0;font-size:28px}
+footer{border-top:1px solid var(--line);color:#8A8A93;font-size:13px;padding:20px 0 120px}
 footer p{margin:0 0 8px}
-footer a{color:#fff}
-.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,251,240,.96);border-top:1px solid #F1E7C8;transform:translateY(120%);transition:transform .25s;z-index:10}
+footer a{color:#D4D4D8}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(11,11,13,.95);border-top:1px solid var(--line);transform:translateY(120%);transition:transform .25s;z-index:10}
 .sticky.show{transform:none}
 .sticky .btn{max-width:516px;margin:0 auto;font-size:17px;padding:15px 10px;animation:none}
 </style>
@@ -136,123 +152,118 @@ footer a{color:#fff}
 
 <header class="top">
   <div class="wrap">
-    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#FFD400"/><path d="M11 21l6 6 12-13" fill="none" stroke="#14213D" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#FFD400"/><path d="M11 21l6 6 12-13" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <div><b>Livre das Dívidas</b><span>Plano de 7 dias</span></div>
   </div>
 </header>
 
 <main class="wrap" aria-live="polite">
 
-  <!-- QUIZ: abre direto na 1ª pergunta -->
+  <!-- QUIZ -->
   <div class="screen on" id="s-quiz">
-    <h1 class="headline">Se livre de <span class="mk">TODAS</span> as suas dívidas com o <span class="gr">plano de 7 dias</span></h1>
-    <p class="sub">Responda 3 perguntas rápidas 👇</p>
+    <span class="kicker">Plano de 7 dias para sair das dívidas</span>
+    <h1 class="headline anton" id="hl">Volte a ser feliz.</h1>
+    <p class="sub">Responda 7 perguntas e receba o seu plano 👇</p>
     <div class="qcard" id="qcard"></div>
   </div>
 
   <!-- CARREGANDO -->
   <div class="screen" id="s-load">
     <div class="loading">
-      <div class="spin" aria-hidden="true"></div>
-      <h2 class="q" style="margin:0">Calculando o seu resultado…</h2>
+      <h2 class="anton">Montando o <span class="y">seu plano</span>…</h2>
+      <div class="checks" id="checks">
+        <div><i>✓</i>Analisando as suas 7 respostas</div>
+        <div><i>✓</i>Achando o furo que afunda o seu dinheiro</div>
+        <div><i>✓</i>Calculando quanto custa esperar</div>
+        <div><i>✓</i>Montando o seu plano de 7 dias</div>
+      </div>
     </div>
   </div>
 
   <!-- RESULTADO -->
   <div class="screen" id="s-res">
+    <span class="rot anton" data-rot>Volte a ser feliz.</span>
+
     <div class="res-top" id="r-top">
       <span class="lab">Seu resultado</span>
       <div class="emo" id="r-emo"></div>
       <div class="pre">O furo que afunda o seu dinheiro é</div>
-      <div class="name" id="r-name"></div>
+      <div class="name anton" id="r-name"></div>
       <p id="r-texto"></p>
     </div>
 
-    <a class="btn cta cta-giant" href="#" rel="noopener" style="margin-top:16px">Se livre das dívidas com o plano de 7 dias, clique aqui<small>R$ 19,90 · acesso na hora</small></a>
+    <div class="cost" id="r-cost">
+      <div class="t">Quanto custa esperar</div>
+      <div class="v anton" id="r-cost-v"></div>
+      <p id="r-cost-p"></p>
+      <small id="r-cost-s"></small>
+    </div>
+
+    <a class="btn cta cta-giant" data-plano="1990" href="#" rel="noopener">Quero sair dessa hoje<small>Plano de 7 dias · R$ 19,90 · pagamento único</small></a>
+
+    <div class="said">
+      <b class="t">O que você me contou</b>
+      <div class="chips" id="r-said"></div>
+    </div>
 
     <div class="lines">
       <div><span class="i">❌</span><p style="margin:0"><b>O erro que piora</b><span id="r-erro"></span></p></div>
       <div><span class="i">✅</span><p style="margin:0"><b>O que o plano faz por você</b><span id="r-plano"></span></p></div>
+      <div id="r-extra-row" style="display:none"><span class="i">🛑</span><p style="margin:0"><b>Sobre os gastos que você marcou</b><span id="r-extra"></span></p></div>
     </div>
 
-    <div class="facts">
-      <div class="fact">
-        <b>Quanto você deve</b>
-        <div class="big" id="r-faixa"></div>
-        <div class="termo" id="r-termo">
-          <div class="scale"><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
-          <div class="lbl"><span>até<br>R$ 1 mil</span><span>R$ 1 mil a<br>R$ 5 mil</span><span>R$ 5 mil a<br>R$ 20 mil</span><span>mais de<br>R$ 20 mil</span></div>
-        </div>
-      </div>
-      <div class="fact">
-        <b>Onde vai o seu dinheiro</b>
-        <div class="chips" id="r-gastos"></div>
-      </div>
-    </div>
+    <p class="dream" id="r-dream"></p>
 
-    <div class="offer" id="oferta">
-      <div class="tt">Plano Livre das Dívidas · 7 dias</div>
+    <h2 class="sec anton" id="oferta">Seu plano de <span class="y">7 dias</span></h2>
+    <div class="plan day">
+      <span class="badge">Comece hoje</span>
+      <div class="pt anton">Um dia por vez</div>
+      <p class="pd">1 lição liberada por dia, durante 7 dias. O Dia 1 abre na hora.</p>
       <div class="price"><sup>R$</sup>19,90</div>
-      <div class="pp">Pagamento único · sem mensalidade<br>menos de R$ 3 por dia</div>
-      <a class="btn cta cta-giant" href="#" rel="noopener">Se livre das dívidas com o plano de 7 dias, clique aqui<small>Acesso na hora, no celular</small></a>
-      <div class="trust"><div>Acesso imediato</div><div>Sem mensalidade</div><div>Garantia de 7 dias</div></div>
+      <div class="pp">Pagamento único · menos de R$ 3 por dia</div>
+      <a class="btn cta cta-giant" data-plano="1990" href="#" rel="noopener">Quero começar hoje ➜<small>Acesso no celular, na hora</small></a>
     </div>
+    <div class="trust"><div>Garantia de 7 dias</div><div>Sem mensalidade</div><div>Não pedimos senha</div></div>
+    <p class="taxa" id="taxa"></p>
 
-    <h2 class="sec">A vida que volta quando o furo fecha</h2>
+    <h2 class="sec anton">A vida que volta <span class="y">quando o furo fecha</span></h2>
     <div class="hero">
       <svg viewBox="0 0 360 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Casal de cabelos grisalhos sentado na areia da praia ao pôr do sol, com mala de viagem e uma toalha de piquenique com frutas">
         <defs>
-          <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC07A"/><stop offset=".6" stop-color="#FFE3BC"/><stop offset="1" stop-color="#FFF2DE"/></linearGradient>
-          <linearGradient id="gSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FA3DB"/><stop offset="1" stop-color="#2C6EA6"/></linearGradient>
+          <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9A5A"/><stop offset=".6" stop-color="#FFCB8E"/><stop offset="1" stop-color="#FFE2BC"/></linearGradient>
+          <linearGradient id="gSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3F8FCB"/><stop offset="1" stop-color="#245B8C"/></linearGradient>
           <radialGradient id="gSun"><stop offset="0" stop-color="#FFD27A" stop-opacity=".9"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
         </defs>
         <rect width="360" height="240" fill="url(#gSky)"/>
         <circle cx="262" cy="96" r="64" fill="url(#gSun)"/>
         <circle cx="262" cy="96" r="30" fill="#FFAE45"/>
-        <path d="M70 52 q6 -6 12 0 q6 -6 12 0 M108 38 q4 -4 8 0 q4 -4 8 0" fill="none" stroke="#8A5A3C" stroke-width="2" stroke-linecap="round"/>
         <path d="M120 131 Q170 114 220 131 Z" fill="#7FB9A0" opacity=".75"/>
         <rect y="130" width="360" height="48" fill="url(#gSea)"/>
         <path d="M250 138 h24 M246 146 h32 M252 154 h20" stroke="#FFE3A3" stroke-width="3" stroke-linecap="round" opacity=".8"/>
-        <path d="M20 150 q10 -4 20 0 M90 162 q10 -4 20 0 M170 146 q10 -4 20 0 M300 164 q10 -4 20 0" fill="none" stroke="#fff" stroke-width="2" opacity=".55" stroke-linecap="round"/>
         <path d="M0 176 Q90 162 180 172 T360 168 L360 240 L0 240 Z" fill="#F2D49B"/>
         <path d="M0 214 Q120 204 220 216 T360 212 L360 240 L0 240 Z" fill="#E9C384"/>
-        <!-- coqueiro -->
         <path d="M44 240 Q36 192 60 142" fill="none" stroke="#8A5A3C" stroke-width="9" stroke-linecap="round"/>
         <g fill="#2E8B57">
           <path d="M60 142 q-30 -10 -50 6 q24 -4 50 -6z"/><path d="M60 142 q-10 -30 -38 -36 q22 14 38 36z"/>
           <path d="M60 142 q20 -30 52 -26 q-30 6 -52 26z"/><path d="M60 142 q36 -4 52 18 q-28 -12 -52 -18z"/>
           <path d="M60 142 q-28 8 -40 32 q16 -22 40 -32z"/>
         </g>
-        <circle cx="58" cy="147" r="4.5" fill="#6B4226"/><circle cx="65" cy="146" r="4.5" fill="#6B4226"/>
-        <!-- piquenique -->
         <path d="M86 214 L170 206 L184 234 L96 242 Z" fill="#E2574C"/>
-        <path d="M107 212 L118 240 M128 210 L140 238 M150 208 L162 236 M90 222 L176 213 M93 231 L180 222" stroke="#fff" stroke-width="3" opacity=".7"/>
         <ellipse cx="128" cy="219" rx="19" ry="6" fill="#fff"/>
         <circle cx="120" cy="214" r="5.5" fill="#F39C12"/><circle cx="131" cy="212" r="5.5" fill="#E74C3C"/><circle cx="140" cy="216" r="5" fill="#7CB342"/>
-        <rect x="150" y="200" width="24" height="15" rx="3" fill="#B9803F"/><path d="M153 200 q9 -12 18 0" fill="none" stroke="#8A5A3C" stroke-width="3"/>
-        <!-- casal de costas -->
-        <ellipse cx="246" cy="214" rx="48" ry="5" fill="#000" opacity=".08"/>
         <path d="M206 212 Q204 186 214 176 Q224 170 234 176 Q242 186 240 212 Z" fill="#E8664F"/>
-        <ellipse cx="223" cy="171" rx="5" ry="4" fill="#C98B63"/>
         <circle cx="223" cy="160" r="12" fill="#D5D8DD"/><circle cx="223" cy="146" r="6" fill="#C3C7CD"/>
         <path d="M240 212 Q238 184 250 174 Q262 168 274 174 Q284 184 282 212 Z" fill="#2F6DB5"/>
-        <ellipse cx="262" cy="168" rx="6" ry="4" fill="#B9784F"/>
-        <circle cx="262" cy="156" r="13" fill="#BFC4CA"/><ellipse cx="262" cy="147" rx="7" ry="4" fill="#C98B63"/>
+        <circle cx="262" cy="156" r="13" fill="#BFC4CA"/>
         <path d="M252 186 Q238 180 226 186" fill="none" stroke="#2F6DB5" stroke-width="8" stroke-linecap="round"/>
-        <!-- mala -->
         <rect x="294" y="184" width="30" height="28" rx="4" fill="#1E7A4C"/>
         <path d="M302 184 v-6 h14 v6" fill="none" stroke="#165E3A" stroke-width="3"/>
-        <circle cx="309" cy="198" r="6" fill="#FFE08A"/><path d="M296 192 h4 M318 204 h4" stroke="#165E3A" stroke-width="2"/>
       </svg>
       <img src="img/hero.jpg" alt="" onerror="this.remove()">
     </div>
-    <div class="pills">
-      <span style="background:var(--blue)">✈️ Voltar a viajar</span>
-      <span style="background:var(--orange)">🍽️ Comer bem</span>
-      <span style="background:var(--green)">😴 Dormir tranquilo</span>
-    </div>
+    <div class="pills"><span>😴 Dormir sem medo</span><span>👨‍👩‍👧 Paz em casa</span><span>✈️ Viajar de novo</span></div>
 
-    <h2 class="sec">Seu plano, um dia por vez</h2>
+    <h2 class="sec anton">Seu plano, <span class="y">um dia por vez</span></h2>
     <div class="days">
       <div><span class="d open">Dia 1</span>Descubra quanto você deve de verdade</div>
       <div><span class="d">Dia 2</span>Ache onde o dinheiro vaza</div>
@@ -263,17 +274,20 @@ footer a{color:#fff}
       <div><span class="d">Dia 7</span>Seu pacto para nunca mais dever</div>
     </div>
 
-    <a class="btn cta cta-giant" href="#" rel="noopener">Se livre das dívidas com o plano de 7 dias, clique aqui<small>R$ 19,90 · pagamento único</small></a>
+    <a class="btn cta cta-giant" data-plano="1990" href="#" rel="noopener">Quero começar hoje ➜<small>R$ 19,90 · pagamento único</small></a>
     <p class="garan">🛡️ Garantia de 7 dias: não gostou, devolvemos 100%.<br>Não pedimos senha de banco. Não oferecemos empréstimo.</p>
+
+    <div class="band"><span class="rot anton" data-rot>Volte a ser feliz.</span></div>
     <button class="back" id="redo" style="display:block;margin:14px auto 0">Refazer as perguntas</button>
   </div>
 </main>
 
-<div class="sticky" id="sticky"><a class="btn cta" href="#" rel="noopener">Se livre das dívidas · R$ 19,90 ➜</a></div>
+<div class="sticky" id="sticky"><a class="btn cta" data-plano="1990" href="#" rel="noopener">Começar hoje · R$ 19,90 ➜</a></div>
 
 <footer>
   <div class="wrap">
     <p><b>Livre das Dívidas</b> é um curso independente de educação financeira. Não é governo, banco nem financeira. Não negociamos dívidas, não oferecemos empréstimo e não pedimos senhas. O resultado depende da situação de cada pessoa.</p>
+    <p>As respostas do teste ficam só no seu aparelho.</p>
     <p>Suporte: responda o e-mail de confirmação da compra ou fale pela área de membros.</p>
     <p><a href="privacidade.html">Política de privacidade</a> · <a href="termos.html">Termos de uso</a></p>
   </div>
@@ -281,40 +295,107 @@ footer a{color:#fff}
 
 <script>
 /* ===== CONFIGURAR ANTES DE PUBLICAR ===== */
-const CHECKOUT_URL = 'https://pay.cakto.com.br/h5fogmp'; // link do checkout (Cakto, Kiwify ou Wiapy)
-const PIXEL_ID = '1010317194734434';                                         // ID do pixel do Meta; vazio = sem pixel
+const CHECKOUT_URL      = 'https://pay.cakto.com.br/h5fogmp'; // R$ 19,90 · um dia por vez
+const PIXEL_ID          = '1010317194734434';                 // pixel do Meta; vazio = sem pixel
+const TAXA_NOTE         = '';                                 // ex.: '+ taxa da plataforma de R$ 0,99 no checkout'
 
 if (PIXEL_ID) {
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', PIXEL_ID); fbq('track', 'PageView');
 }
-function track(type, name){ if (window.fbq) fbq(type, name); } // as respostas não vão para o Meta
+// as respostas do teste NUNCA vão para o Meta
+function track(type, name, params){ if (window.fbq) params ? fbq(type, name, params) : fbq(type, name); }
+
+/* ===== HEADLINES QUE TROCAM A CADA PERGUNTA ===== */
+const HEADS = ['Volte a ser feliz.','Recupere a sua família.','Tenha a vida que sempre sonhou.','Durma sem medo do telefone tocar.','Pare de trabalhar só para pagar juros.','Chega de esconder as contas.','O seu recomeço começa agora.'];
+const ROT = ['Volte a ser feliz.','Recupere a sua família.','Tenha a vida que sempre sonhou.'];
 
 /* ===== PERGUNTAS ===== */
 const Q = [
+  { key:'dor', title:'O que mais tira o seu sono por causa do dinheiro?', opts:[
+    ['cobranca','📞','O telefone tocando de cobrança'],
+    ['nome','🚫','Nome sujo e crédito negado'],
+    ['brigas','💔','Brigas em casa por dinheiro'],
+    ['vergonha','😔','Vergonha de pedir ajuda'],
+    ['perder','🏠','Medo de perder o que conquistei'],
+    ['nada','⏳','Trabalhar e não sobrar nada'] ]},
   { key:'faixa', title:'Quanto você deve, mais ou menos?', opts:[
     ['ate1','💵','Até R$ 1.000'],
     ['1a5','💰','De R$ 1.000 a R$ 5.000'],
     ['5a20','📈','De R$ 5.000 a R$ 20.000'],
     ['20mais','🚨','Mais de R$ 20.000'],
     ['naosei','🤷','Não sei'] ]},
-  { key:'gastos', multi:true, max:3, title:'Com o que você mais gasta?', hint:'Toque em até 3', opts:[
+  { key:'gastos', multi:true, max:3, title:'Qual despesa mais pesa nas suas dívidas?', hint:'Toque em até 3', opts:[
     ['mercado','🛒','Mercado'],
     ['moradia','🏠','Aluguel'],
     ['contas','💡','Luz e água'],
     ['cartao','💳','Cartão e parcelas'],
     ['saude','💊','Remédios'],
-    ['familia','👨‍👩‍👧','Ajudar a família'] ]},
+    ['familia','👨‍👩‍👧','Ajudar a família'],
+    ['apostas','🎰','Jogos de aposta (bets, raspadinha)'],
+    ['adulto','🔞','Conteúdo adulto (+18)'] ]},
   { key:'perfil', title:'Quando o salário cai, o que acontece?', opts:[
     ['bola','🔥','Pago uma conta e atraso outra'],
     ['ralo','💧','Some em gastinhos e não sei onde'],
     ['coracao','❤️','Ajudo a família e fico sem'],
-    ['buraco','🕳️','Pego empréstimo pra cobrir'] ]}
+    ['buraco','🕳️','Pego empréstimo pra cobrir'] ]},
+  { key:'tempo', title:'Há quanto tempo você vive no aperto?', opts:[
+    ['menos6','📅','Menos de 6 meses'],
+    ['6a24','🗓️','De 6 meses a 2 anos'],
+    ['mais2','⌛','Mais de 2 anos'],
+    ['sempre','🔁','Desde sempre'] ]},
+  { key:'tentou', multi:true, max:3, title:'O que você já tentou para sair dessa?', hint:'Toque em até 3', opts:[
+    ['renegociei','🤝','Renegociei e voltei a dever'],
+    ['emprestimo','🏦','Peguei empréstimo ou consignado'],
+    ['cortei','✂️','Cortei tudo e não aguentei'],
+    ['planilha','📱','Planilha ou aplicativo'],
+    ['nada','🙋','Ainda não tentei nada'] ]},
+  { key:'sonho', title:'Com as contas em dia, o que você faria primeiro?', opts:[
+    ['dormir','😴','Dormir sem medo'],
+    ['familia','👨‍👩‍👧','Ter paz em casa'],
+    ['viajar','✈️','Viajar de novo'],
+    ['comer','🍽️','Comer fora sem culpa'],
+    ['guardar','💰','Guardar um dinheirinho'],
+    ['ajudar','🙌','Ajudar os filhos sem me afundar'] ]}
 ];
+const SENSIVEIS = ['apostas','adulto']; // não saem do aparelho
+
+/* ===== RESPOSTA CURTA DEPOIS DE CADA ESCOLHA ===== */
+const FX = { ate1:1000, '1a5':3000, '5a20':12000, '20mais':20000 };
+const brl = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+function jurosMes(f){ return FX[f] ? FX[f] * 0.08 : 0; }
+function feedback(key){
+  const v = A[key];
+  switch (key){
+    case 'dor': return {
+      cobranca:'No Dia 5 você aprende a negociar com 5 frases prontas, sem medo do telefone.',
+      nome:'No Dia 1 você vê, de graça, tudo o que está no seu nome.',
+      brigas:'Quando a conta fecha, a casa respira. O Dia 6 põe o salário em envelopes que todo mundo entende.',
+      vergonha:'Ninguém precisa saber. O plano é no seu celular, no seu ritmo.',
+      perder:'O Dia 4 mostra o que pagar primeiro para proteger o que é essencial.',
+      nada:'O dinheiro não some: ele vaza. O Dia 2 mostra para onde.' }[v];
+    case 'faixa': return v === 'naosei' ? 'Tudo bem. O Dia 1 descobre o seu número exato.'
+      : `Exemplo com juros de 8% ao mês: isso pode custar ${v==='ate1'?'até ':v==='20mais'?'mais de ':'cerca de '}${brl(jurosMes(v))} por mês só de juros.`;
+    case 'gastos':
+      if (v.includes('apostas')) return 'Aposta tem freio: no Dia 3 você aprende a se autoexcluir dos sites e onde achar ajuda de graça.';
+      if (v.includes('adulto')) return 'Gasto escondido também tem freio. O Dia 3 mostra como cortar o impulso.';
+      return 'Anotado. O Dia 2 mostra quanto cada um desses gastos leva por mês.';
+    case 'perfil': return 'Isso diz muito sobre o furo do seu barco. Faltam só 3 perguntas.';
+    case 'tempo': return v === 'menos6' ? 'Bom momento para agir: quanto antes, menos juros.'
+      : v === 'sempre' ? 'Não é falta de esforço. Ninguém ensinou a ordem certa. Agora vai.'
+      : 'Quanto mais tempo, mais juros sobre juros. Por isso o plano começa hoje.';
+    case 'tentou':
+      if (v.includes('renegociei')) return 'Não foi falta de esforço. Foi o furo que ficou aberto.';
+      if (v.includes('emprestimo')) return 'Empréstimo para pagar empréstimo só muda o buraco de lugar. O Dia 3 mostra o freio.';
+      if (v.includes('nada')) return 'Começar do zero é mais fácil: você já faz na ordem certa.';
+      return 'Faltou a ordem certa. É isso que o plano entrega, um dia por vez.';
+    case 'sonho': return 'Guardado. O seu plano vai ser montado para isso.';
+  }
+}
 
 /* ===== RESULTADO ===== */
 const PERFIS = {
-  bola:{ nome:'Bola de Neve', emo:'❄️', cor:'linear-gradient(160deg,#FF7A00,#FF3D3D)',
+  bola:{ nome:'Bola de Neve', emo:'❄️', cor:'linear-gradient(160deg,#FF8A00,#FF3B30)',
     texto:'Você paga uma conta e atrasa outra. Cada atraso vira multa e juros, e a dívida cresce sozinha.',
     erro:'Pagar um pouco de cada, sem ordem.',
     plano:'Mostra qual conta pagar primeiro para parar a bola de neve.' },
@@ -326,17 +407,18 @@ const PERFIS = {
     texto:'Você ajuda todo mundo e fica sem. No fim, a dívida fica no seu nome.',
     erro:'Dizer sim na hora, sem ver se cabe no seu mês.',
     plano:'Ensina a ajudar sem se afundar, com frases prontas para dizer não sem briga.' },
-  buraco:{ nome:'Tapa-Buraco', emo:'🕳️', cor:'linear-gradient(160deg,#7B2FF7,#3A0CA3)',
+  buraco:{ nome:'Tapa-Buraco', emo:'🕳️', cor:'linear-gradient(160deg,#7B2FF7,#FF3B30)',
     texto:'Você pega empréstimo para pagar outro. Os juros novos caem em cima dos antigos e a dívida nunca acaba.',
     erro:'Aceitar o crédito “pré-aprovado” quando o mês aperta.',
     plano:'Faz você parar de cavar e mostra como sair das dívidas mais caras primeiro.' }
 };
-const FAIXAS = { ate1:['Até R$ 1.000',0], '1a5':['R$ 1.000 a R$ 5.000',1], '5a20':['R$ 5.000 a R$ 20.000',2], '20mais':['Mais de R$ 20.000',3], naosei:['Ainda não sabe. O Dia 1 resolve isso.',-1] };
+const SONHOS = { dormir:'dormir sem medo', familia:'ter paz em casa', viajar:'viajar de novo', comer:'comer fora sem culpa', guardar:'guardar um dinheirinho', ajudar:'ajudar os filhos sem se afundar' };
 
 /* ===== LÓGICA ===== */
-const A = { gastos:[] };
-let step = 0;
+const A = { gastos:[], tentou:[] };
+let step = 0, lock = false;
 const $ = s => document.querySelector(s);
+const label = (key, v) => { const o = Q.find(q => q.key === key).opts.find(o => o[0] === v); return o ? `${o[1]} ${o[2]}` : ''; };
 
 function show(id){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
@@ -345,77 +427,135 @@ function show(id){
   $('#sticky').classList.remove('show');
 }
 
+function setHead(i){
+  const h = $('#hl');
+  if (h.textContent === HEADS[i]) return;
+  h.textContent = HEADS[i];
+  h.classList.remove('swap'); void h.offsetWidth; h.classList.add('swap');
+}
+
 function renderQ(){
   const q = Q[step];
-  const isSel = v => q.multi ? A.gastos.includes(v) : A[q.key] === v;
+  setHead(step);
+  const pct = Math.round(step / Q.length * 100);
+  const isSel = v => q.multi ? A[q.key].includes(v) : A[q.key] === v;
   $('#qcard').innerHTML =
-    `<div class="prog"><div class="dots">${Q.map((_,i)=>`<i class="${i<=step?'f':''}"></i>`).join('')}</div><span>${step+1} de 3</span></div>
+    `<div class="prog"><div class="row"><span>Pergunta ${step+1} de ${Q.length}</span><span>Seu plano: <b>${pct}%</b> montado</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>
      <div class="q">${q.title}</div>
      ${q.hint?`<p class="qhint" id="qhint">${q.hint}</p>`:''}
      <div class="opts${q.multi?' grid2':''}">${q.opts.map(o=>
        `<button class="opt${isSel(o[0])?' sel':''}" data-v="${o[0]}" aria-pressed="${isSel(o[0])}"><span class="em" aria-hidden="true">${o[1]}</span><span>${o[2]}</span></button>`).join('')}</div>
+     <div class="fb" id="fb" role="status"></div>
      ${q.multi?'<button class="btn" id="qgo">Continuar ➜</button>':''}
      ${step>0?'<button class="back" id="qback">← voltar</button>':''}`;
+  lock = false;
 
   const bts = $('#qcard').querySelectorAll('.opt');
   if (q.multi){
-    const go = $('#qgo'), hint = $('#qhint');
-    const refresh = () => { go.disabled = !A.gastos.length; go.textContent = A.gastos.length ? 'Continuar ➜' : 'Toque em pelo menos 1'; };
+    const sel = A[q.key], go = $('#qgo'), hint = $('#qhint');
+    const refresh = () => { go.disabled = !sel.length; go.textContent = sel.length ? 'Continuar ➜' : 'Toque em pelo menos 1'; };
     bts.forEach(b => b.addEventListener('click', () => {
-      const v = b.dataset.v, i = A.gastos.indexOf(v);
-      if (i > -1){ A.gastos.splice(i,1); b.classList.remove('sel'); b.setAttribute('aria-pressed','false'); }
-      else if (A.gastos.length >= q.max){ hint.textContent='Já são 3. Toque num marcado para trocar.'; hint.classList.add('alert'); setTimeout(()=>{hint.textContent=q.hint;hint.classList.remove('alert')},2000); }
-      else { A.gastos.push(v); b.classList.add('sel'); b.setAttribute('aria-pressed','true'); }
+      if (lock) return;
+      const v = b.dataset.v, i = sel.indexOf(v);
+      if (i > -1){ sel.splice(i,1); b.classList.remove('sel'); b.setAttribute('aria-pressed','false'); }
+      else if (sel.length >= q.max){ hint.textContent='Já são 3. Toque num marcado para trocar.'; hint.classList.add('alert'); setTimeout(()=>{hint.textContent=q.hint;hint.classList.remove('alert')},2000); }
+      else { sel.push(v); b.classList.add('sel'); b.setAttribute('aria-pressed','true'); }
       refresh();
     }));
-    go.addEventListener('click', next);
+    go.addEventListener('click', () => { if (!lock) answered(q.key); });
     refresh();
   } else {
     bts.forEach(b => b.addEventListener('click', () => {
-      bts.forEach(x => x.classList.remove('sel'));
-      b.classList.add('sel'); A[q.key] = b.dataset.v;
+      if (lock) return;
+      bts.forEach(x => { x.classList.remove('sel'); x.setAttribute('aria-pressed','false'); });
+      b.classList.add('sel'); b.setAttribute('aria-pressed','true'); A[q.key] = b.dataset.v;
       if (step === 0) track('trackCustom','QuizStart');
-      setTimeout(next, 250);
+      answered(q.key);
     }));
   }
-  if (step > 0) $('#qback').addEventListener('click', () => { step--; renderQ(); });
+  if (step > 0) $('#qback').addEventListener('click', () => { if (!lock){ step--; renderQ(); } });
+}
+
+function answered(key){
+  lock = true;
+  const fb = $('#fb');
+  fb.textContent = feedback(key);
+  fb.classList.add('on');
+  const pct = Math.round((step + 1) / Q.length * 100);
+  $('#qcard .bar i').style.width = pct + '%';
+  $('#qcard .prog b').textContent = pct + '%';
+  setTimeout(next, 1700);
 }
 
 function next(){
   if (step < Q.length-1){ step++; renderQ(); window.scrollTo(0,0); return; }
   track('trackCustom','QuizComplete');
   show('#s-load');
-  setTimeout(result, 1500);
+  const items = [...document.querySelectorAll('#checks div')];
+  items.forEach(d => d.classList.remove('ok'));
+  items.forEach((d,i) => setTimeout(() => d.classList.add('ok'), 500 + i*550));
+  setTimeout(result, 500 + items.length*550 + 400);
 }
 
 function result(){
-  const p = PERFIS[A.perfil], f = FAIXAS[A.faixa];
-  $('#r-top').style.background = p.cor;
+  const p = PERFIS[A.perfil];
+  $('#r-top').style.setProperty('--grad', p.cor);
   $('#r-emo').textContent = p.emo;
   $('#r-name').textContent = p.nome;
   $('#r-texto').textContent = p.texto;
   $('#r-erro').textContent = p.erro;
   $('#r-plano').textContent = p.plano;
-  $('#r-faixa').textContent = f[0];
-  const termo = $('#r-termo');
-  termo.classList.toggle('unknown', f[1] < 0);
-  termo.querySelectorAll('.seg').forEach((s,i) => s.classList.toggle('on', i === f[1]));
-  const g = Q[1].opts.filter(o => A.gastos.includes(o[0]));
-  $('#r-gastos').innerHTML = g.map(o => `<span>${o[1]} ${o[2]}</span>`).join('');
+
+  // quanto custa esperar (exemplo com os números dela)
+  if (A.faixa === 'naosei'){
+    $('#r-cost-v').textContent = 'Ainda sem número';
+    $('#r-cost-p').textContent = 'Dívida no escuro sempre parece maior. O Dia 1 descobre quanto você deve de verdade, de graça.';
+    $('#r-cost-s').textContent = '';
+  } else {
+    const m = jurosMes(A.faixa), pre = A.faixa==='ate1'?'até ':A.faixa==='20mais'?'mais de ':'~';
+    $('#r-cost-v').innerHTML = `<span class="r">${pre}${brl(m)}</span> por mês`;
+    $('#r-cost-p').textContent = `Só de juros. Em 12 meses, ${A.faixa==='20mais'?'mais de ':A.faixa==='ate1'?'até ':'cerca de '}${brl(m*12)} que não pagam a dívida.`;
+    $('#r-cost-s').textContent = 'Exemplo com juros de 8% ao mês sobre a sua faixa de dívida. Os juros reais variam de contrato para contrato.';
+  }
+
+  const said = [label('dor',A.dor), label('faixa',A.faixa), label('tempo',A.tempo),
+                ...A.gastos.map(v => label('gastos',v)), ...A.tentou.map(v => label('tentou',v))].filter(Boolean);
+  $('#r-said').innerHTML = said.map(s => `<span>${s}</span>`).join('');
+
+  const extra = A.gastos.includes('apostas') ? 'Aposta e jogo têm freio: no Dia 3 você aprende a se autoexcluir dos sites e onde achar ajuda gratuita.'
+              : A.gastos.includes('adulto') ? 'Gasto escondido também pesa. O Dia 3 mostra como frear o impulso e onde buscar apoio, sem julgamento.' : '';
+  $('#r-extra-row').style.display = extra ? '' : 'none';
+  $('#r-extra').textContent = extra;
+
+  $('#r-dream').innerHTML = `Seu plano para <b>${SONHOS[A.sonho]}</b> está pronto.`;
   setCheckout();
   show('#s-res');
   track('track','ViewContent');
 }
 
-/* UTMs da página vão para o checkout; perfil, faixa e gastos vão em src */
+/* UTMs da página vão para o checkout; em src, só respostas não sensíveis */
 function setCheckout(){
-  let url; try { url = new URL(CHECKOUT_URL); } catch(e){ return; }
-  new URLSearchParams(location.search).forEach((v,k) => url.searchParams.set(k,v));
-  url.searchParams.set('src', `quiz-${A.perfil}-${A.faixa}-${A.gastos.join('.')}`);
-  document.querySelectorAll('a.cta').forEach(a => a.href = url.toString());
+  const gastos = A.gastos.filter(v => !SENSIVEIS.includes(v));
+  const src = `quiz-${A.perfil}-${A.faixa}-${A.tempo}${gastos.length?'-'+gastos.join('.'):''}`;
+  document.querySelectorAll('a.cta').forEach(a => {
+    let url; try { url = new URL(CHECKOUT_URL); } catch(e){ return; }
+    new URLSearchParams(location.search).forEach((v,k) => url.searchParams.set(k,v));
+    url.searchParams.set('src', src);
+    a.href = url.toString();
+  });
 }
-document.querySelectorAll('a.cta').forEach(a => a.addEventListener('click', () => track('trackCustom','ClickCheckout')));
-$('#redo').addEventListener('click', () => { delete A.faixa; delete A.perfil; A.gastos = []; step = 0; renderQ(); show('#s-quiz'); });
+document.querySelectorAll('a.cta').forEach(a => a.addEventListener('click', () => track('trackCustom','ClickCheckout', { plano: a.dataset.plano })));
+if (TAXA_NOTE) $('#taxa').textContent = TAXA_NOTE;
+
+$('#redo').addEventListener('click', () => { ['dor','faixa','perfil','tempo','sonho'].forEach(k => delete A[k]); A.gastos = []; A.tentou = []; step = 0; renderQ(); show('#s-quiz'); });
+
+/* frases que trocam no resultado */
+let ri = 0;
+setInterval(() => {
+  if (!$('#s-res').classList.contains('on')) return;
+  ri = (ri + 1) % ROT.length;
+  document.querySelectorAll('[data-rot]').forEach(el => { el.textContent = ROT[ri]; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); });
+}, 3000);
 
 /* barra fixa no resultado: aparece ao rolar, some quando um botão grande está na tela */
 window.addEventListener('scroll', () => {
